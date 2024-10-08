@@ -22,6 +22,27 @@ Console.WriteLine(seasons[seasons.Length -1]);
 
 
 
+//Kullanıcının girdiği iki basamaklı bir sayınının okunuşunu yazan bir program....
+//42 -> Kırk iki
 
 
+string[] birler = { "", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz" };
+string[] onlar = { "", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan" };
 
+
+string cevap = "H";
+
+while (cevap == "H")
+{
+	Console.WriteLine("İki basamaklı bir sayı giriniz:");
+	int sayi = Convert.ToInt32(Console.ReadLine());
+	int onlarBasamagi = sayi / 10;
+	int birlerBasamagi = sayi % 10;
+
+	Console.WriteLine(onlar[onlarBasamagi] + " " + birler[birlerBasamagi]);
+	Console.WriteLine("Çıkmak ister misiniz? (E/H)");
+	cevap = Console.ReadLine();
+
+}
+//Kullanıcı, uygulamadan çıkmak istemediği sürece sayıyı yazıya çevirmeye devam eder.
+//Pişmediği sürece çorbayı karıştırmaya devam eder.
