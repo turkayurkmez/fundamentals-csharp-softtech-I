@@ -25,12 +25,19 @@ namespace MethodDetails
 
             int ort = ortalamaAl(22, 34);
 
-            double kare = alanHesapla(12, "Kare");
-            double daire = alanHesapla(7, "Daire");
+            double kare = alanHesapla(12, KARE);
+            double daire = alanHesapla(7, DAIRE);
             double ucgen = alanHesapla(3, 4, GeometrikSekil.Ucgen);
             var dikdortgen = alanHesapla(7, 8, GeometrikSekil.Dikdortgen);
 
             Console.WriteLine($"Kare: {kare}\nDaire:{daire}\nÜçgen:{ucgen}\nDikdörtgen:{dikdortgen}");
+
+            var kare2 = OpsiyonelAlanHesapla(birimUzunluk: 5);
+            var daire2 = OpsiyonelAlanHesapla(3, sekil: GeometrikSekil.Daire);
+            var ucgen2 = OpsiyonelAlanHesapla(5, sekil: GeometrikSekil.Ucgen);
+
+            Console.WriteLine($"Kare: {kare2}\nDaire:{daire2}\nÜçgen:{ucgen2}");
+
 
         }
 
@@ -72,6 +79,9 @@ namespace MethodDetails
             return (int)numbers.Average();
         }
 
+        const string KARE = "Kare";
+        const string DAIRE = "Daire";
+
         /// <summary>
         /// Kare ya da Daire cisimlerinin alanını hesaplar.
         /// </summary>
@@ -96,7 +106,6 @@ namespace MethodDetails
 
             return sonuc;
         }
-
         /// <summary>
         /// Üçgen veya Dikdörtgen.....
         /// </summary>
@@ -135,6 +144,25 @@ namespace MethodDetails
             return sonuc;
         }
 
+
+        static double OpsiyonelAlanHesapla(double birimUzunluk, double birimUzunluk2 = 1, GeometrikSekil sekil= GeometrikSekil.Kare)
+        {
+            switch (sekil)
+            {
+                case GeometrikSekil.Kare:
+                    return Math.Pow(birimUzunluk, 2);
+                case GeometrikSekil.Daire:
+                    return Math.Pow(birimUzunluk, 2) * Math.PI;
+
+                case GeometrikSekil.Ucgen:
+                    return (birimUzunluk * birimUzunluk2) / 2;
+                case GeometrikSekil.Dikdortgen:
+
+                    return birimUzunluk * birimUzunluk2;
+                default:
+                    return 0;
+            }
+        }
 
     }
 
