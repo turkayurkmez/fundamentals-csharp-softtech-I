@@ -11,7 +11,7 @@ namespace LINQBasics
         private List<Product> products;
         public ProductService()
         {
-            var products = new List<Product>
+            products = new List<Product>
 {
     new Product { Id = 1, Name = "Laptop", Description = "Yüksek performanslı bir ürün.", Price = 965.58M },
     new Product { Id = 2, Name = "Mikrofon", Description = "Tüm oyun severler için mükemmel.", Price = 2495.02M },
