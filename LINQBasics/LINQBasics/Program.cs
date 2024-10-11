@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            //LINQ: Language INtegrated Query
             Console.WriteLine("Hello, World!");
         }
     }
